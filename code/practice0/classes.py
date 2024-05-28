@@ -1,5 +1,9 @@
 import datetime
+import enum
 
+class Modality(enum.Enum):
+    diario = "Diario"
+    sabatino = "Sabatino"
 
 class Person:
 
@@ -58,11 +62,12 @@ class Subject:
 
 
 class Course:
-    def __init__(self, courseID: str, cycle: str, modality: str, professor: Professor, subject: Subject):
-        
+
+    def __init__(self, courseID: str, cycle: str, modality: Modality, professor: Professor, subject: Subject):
+
         self.courseID = courseID
         self.cycle = cycle
-        self.modality = modality
+        self.modality = modality.name
         self.professor = professor
         self.subject = subject
         self.students: list[Student] = []

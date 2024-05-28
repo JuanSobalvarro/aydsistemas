@@ -22,7 +22,7 @@ def test2():
     asignatura = classes.Subject("1", "Matematicas", 5)
     profesor = classes.Professor("1", "Juan", datetime.datetime(2004, 8, 23), "Ingeniero", "Jefe de Carrera", "planta")
 
-    course = classes.Course("1", "1.er Cuatrimestre", "diario", profesor, asignatura)
+    course = classes.Course("1", "1.er Cuatrimestre", classes.Modality.diario, profesor, asignatura)
 
     notes = numpy.random.normal(85, 15, 20)
 
@@ -31,6 +31,8 @@ def test2():
         course.addNote(student, note)
 
     sizecourse = len(course.getNotes())
+
+    print(f"Bienvenido al curso de {course.subject.name} en el plan de {course.modality}")
 
     print(profesor.greet + " y mis estudiantes son: ")
     for student in students:
